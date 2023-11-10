@@ -5,7 +5,8 @@ const sequelize = new Sequelize({
     host: 'localhost',
     username: 'root',
     password: 'password',
-    database: 'backend-tutorial'
+    database: 'backend-tutorial',
+    logging: console.log
 })
 
 export default sequelize

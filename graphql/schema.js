@@ -9,7 +9,8 @@ const typeDefs = `#graphql
         firstName: String!,
         lastName: String!,
         emailAddress: String!,
-        password: String!
+        password: String!,
+        isActive: Boolean!
     }
 `
 

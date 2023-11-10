@@ -2,9 +2,17 @@ import { User } from "../../models/user.js";
 
 export const resolvers = {
   Query: {
-    user: async (_, {emailAddress}) => {
+    user: async (_, { emailAddress }) => {
       try {
-        const user = await User.findOne({where: {emailAddress}});
+        const user = await User.findOne({ where: { emailAddress } });
+
+        if (!user) {
+          return null; // User not found
+        }
+
+        user.isActive = 1;
+        await user.save()
+        console.log('Single User', user)
         return user;
       } catch (error) {
         console.log("Error fetching one user in resolver", error);
